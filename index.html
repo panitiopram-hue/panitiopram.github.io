@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>เมนูเด็กหอ — ทำง่าย ประหยัด</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <div class="brand">
+        <div class="logo">ตำรา</div>
+        <div>
+          <h1>เมนูเด็กหอ — ทำง่าย ประหยัด</h1>
+          <p class="sub">ธีม: Thai Traditional Feel — โทนอุ่น น้ำตาล-ทอง</p>
+        </div>
+      </div>
+      <div class="controls">
+        <input id="search" class="search-input" placeholder="ค้นหาเมนู หรือวัตถุดิบ เช่น ปลากระป๋อง, มาม่า..." />
+        <button id="reset" class="btn primary">รีเซ็ต</button>
+      </div>
+    </header>
+
+    <!-- Recommended -->
+    <section class="recommended-section">
+      <div class="sec-head">
+        <h2>เมนูแนะนำ</h2>
+        <div class="sec-sub">เมนูที่คุณส่งมา (แสดงภาพตัวอย่าง)</div>
+      </div>
+      <div id="recommendedRow" class="recommended-row" aria-live="polite"></div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters">
+      <div class="left">
+        <button id="recommendedBtn" class="pill">เมนูแนะนำ</button>
+        <div id="chooser" class="chooser"></div>
+      </div>
+      <div class="right">
+        <div id="deviceFilter" class="device-filter">
+          <button data-device="all" class="pill active">ทั้งหมด</button>
+          <button data-device="no-cook" class="pill">ไม่ใช้ความร้อน</button>
+          <button data-device="ไมโครเวฟ" class="pill">ไมโครเวฟ</button>
+          <button data-device="หม้อหุงข้าว" class="pill">หม้อหุงข้าว</button>
+          <button data-device="กระทะ" class="pill">กระทะ/เตาไฟฟ้า</button>
+          <button data-device="เตาอบ" class="pill">เตาอบ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid -->
+    <main>
+      <section id="grid" class="grid" aria-live="polite"></section>
+    </main>
+
+    <footer class="site-footer">
+      © เมนูเด็กหอ — ทำง่ายสำหรับชีวิตมหาวิทยาลัย
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal-header">
+        <div>
+          <h2 id="modal-title">ชื่อเมนู</h2>
+          <div id="modal-sub" class="modal-sub small"></div>
+        </div>
+        <button id="close" class="close" aria-label="ปิด">✕</button>
+      </header>
+
+      <div class="modal-body">
+        <div class="modal-left">
+          <div class="thumb" id="modal-thumb"><img id="modal-img" alt=""></div>
+
+          <div class="card ing">
+            <strong>วัตถุดิบ (ปริมาณ)</strong>
+            <ul id="ing-list"></ul>
+          </div>
+
+          <div class="card steps">
+            <strong>ขั้นตอน (ละเอียด)</strong>
+            <ol id="steps-list"></ol>
+          </div>
+        </div>
+
+        <aside class="modal-right">
+          <div class="meta-card">
+            <div><strong>เวลาทำโดยประมาณ</strong></div>
+            <div id="time">-</div>
+            <hr>
+            <div><strong>อุปกรณ์</strong></div>
+            <div id="device">-</div>
+            <hr>
+            <div><strong>ระดับความยาก</strong></div>
+            <div id="diff">-</div>
+            <hr>
+            <div><strong>ป้าย</strong></div>
+            <div id="tags" class="tags"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
